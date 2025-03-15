@@ -20,6 +20,9 @@ The emphasis is on simplicity and ease of use. Therefore, the application can:
 1. Final publish as the application should be (version, manifest?, certificate?).
 2. License - I don't know if it is necessary at all
 3. Nicer, not native design
+4. Steps between rows should keep caret possition, if some rows are smaller.
+5. Saving state (last active textbox and the text inside) - can continue after restart the app.
+6. Rebuild to bigger than ulong (BigInteger?)
 
 ## How to build
 
