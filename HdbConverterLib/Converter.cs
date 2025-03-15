@@ -16,14 +16,10 @@ public class Converter
     /// <returns>string of dec value</returns>
     public string Dec2Hex(string dec)
     {
-        if (dec == "")
-            return "";
+        var validResult = ValidateInput(dec, Validator.IsPositiveDecimal, NumSystem.DEC);
 
-        if (Validator.IsNegative(dec))
-            return Message.OnlyPositiveNumbers;
-
-        if (!Validator.IsPositiveDecimal(dec))
-            return Message.WrongDec;
+        if (!validResult.isValid)
+            return validResult.message;
 
         bool isConverted = ulong.TryParse(dec, out ulong l);
 
@@ -41,14 +37,10 @@ public class Converter
     /// <returns></returns>
     public string Dec2Bin(string dec)
     {
-        if (dec == "")
-            return "";
+        var validResult = ValidateInput(dec, Validator.IsPositiveDecimal, NumSystem.DEC);
 
-        if (Validator.IsNegative(dec))
-            return Message.OnlyPositiveNumbers;
-
-        if (!Validator.IsPositiveDecimal(dec))
-            return Message.WrongDec;
+        if (!validResult.isValid)
+            return validResult.message;
 
         bool isConverted = ulong.TryParse(dec, out ulong l);
 
@@ -72,14 +64,10 @@ public class Converter
     /// <returns></returns>
     public string Hex2Dec(string hex)
     {
-        if (hex == "")
-            return "";
+        var validResult = ValidateInput(hex, Validator.IsHexadecimalPositive, NumSystem.HEX);
 
-        if (Validator.IsNegative(hex))
-            return Message.OnlyPositiveNumbers;
-
-        if (!Validator.IsHexadecimalPositive(hex))
-            return Message.WrongHex;
+        if (!validResult.isValid)
+            return validResult.message;
 
         ulong? convertedNumber = ConvertFromHexadecmal(hex);
 
@@ -97,14 +85,10 @@ public class Converter
     /// <returns></returns>
     public string Hex2Bin(string hex)
     {
-        if (hex == "")
-            return "";
+        var validResult = ValidateInput(hex, Validator.IsHexadecimalPositive, NumSystem.HEX);
 
-        if (Validator.IsNegative(hex))
-            return Message.OnlyPositiveNumbers;
-
-        if (!Validator.IsHexadecimalPositive(hex))
-            return Message.WrongHex;
+        if (!validResult.isValid)
+            return validResult.message;
 
         ulong? convertedNumber = ConvertFromHexadecmal(hex);
 
@@ -128,14 +112,10 @@ public class Converter
     /// <returns></returns>
     public string Bin2Dec(string bin)
     {
-        if (bin == "")
-            return "";
+        var validResult = ValidateInput(bin, Validator.IsBinary, NumSystem.BIN);
 
-        if (Validator.IsNegative(bin))
-            return Message.OnlyPositiveNumbers;
-
-        if (!Validator.IsBinary(bin))
-            return Message.WrongBin;
+        if (!validResult.isValid)
+            return validResult.message;
 
         ulong decimalNum;
 
@@ -159,14 +139,10 @@ public class Converter
     /// <returns></returns>
     public string Bin2Hex(string bin)
     {
-        if (bin == "")
-            return "";
+        var validResult = ValidateInput(bin, Validator.IsBinary, NumSystem.BIN);
 
-        if (Validator.IsNegative(bin))
-            return Message.OnlyPositiveNumbers;
-
-        if (!Validator.IsBinary(bin))
-            return Message.WrongBin;
+        if (!validResult.isValid)
+            return validResult.message;
 
         ulong decimalNum;
 
@@ -222,10 +198,36 @@ public class Converter
 
         public static string WrongDec = "Wrong DEC number!";
         public static string WrongBin = "Wrong BIN number!";
-        public static string WrongHex = "wrong HEX number!";
+        public static string WrongHex = "Wrong HEX number!";
 
         public static string NotValid = "Bigger than ulong";
+
+        public static string GetWrongMessage(NumSystem numSystem)
+        {
+            return $"Wrong {numSystem.ToString()} number!";
+        }
     };
+
+    private (bool isValid, string message) ValidateInput(string input, Func<string, bool> testPositiveNumber,  NumSystem numericSystem)
+    {
+        if (input == "")
+            return (isValid: false, message: "");
+
+        if (Validator.IsNegative(input))
+            return (isValid: false, message: Message.OnlyPositiveNumbers);
+
+        if (!testPositiveNumber(input))
+            return (isValid: false, message: Message.GetWrongMessage(numericSystem));
+
+        return (isValid: true, "");
+    }
+
+    private enum NumSystem
+    {
+        HEX,
+        DEC,
+        BIN
+    }
 
 
     #endregion
