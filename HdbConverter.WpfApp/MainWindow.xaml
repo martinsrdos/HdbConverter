@@ -1,0 +1,29 @@
+﻿<Window x:Class="HdbConverter.WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HdbConverter.WpfApp"
+        mc:Ignorable="d"
+        Title="HDB Converter | by Martin Srdos" Height="129" Width="325"
+        ResizeMode="NoResize" Icon="/icon-360.png"  Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown">
+  <Grid Margin="0,0,0,0" KeyboardNavigation.TabNavigation="Cycle">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="28*"/>
+      <RowDefinition Height="28*"/>
+      <RowDefinition Height="28*"/>
+      <RowDefinition Height="8*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="20*"/>
+      <ColumnDefinition Width="80*"/>
+    </Grid.ColumnDefinitions>
+    <TextBlock x:Name="textBlockDec" HorizontalAlignment="Center" TextWrapping="Wrap" Text="DEC" VerticalAlignment="Center" Grid.Row="1" Height="16" Width="25"/>
+    <TextBlock x:Name="textBlockHex" HorizontalAlignment="Center" TextWrapping="Wrap" Text="HEX" VerticalAlignment="Center" Grid.Row="2" Height="16" Width="25"/>
+    <TextBlock x:Name="textBlockBin" HorizontalAlignment="Center" TextWrapping="Wrap" Text="BIN" VerticalAlignment="Center" Grid.Row="3" Height="16" Width="25" />
+    <TextBox x:Name="textBoxDec" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TextChanged="textBoxDec_TextChanged" GotFocus="textBoxDec_GotFocus" TabIndex="0"/>
+    <TextBox x:Name="textBoxHex" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TextChanged="textBoxHex_TextChanged" GotFocus="textBoxHex_GotFocus" TabIndex="1"/>
+    <TextBox x:Name="textBoxBin" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TextChanged="textBoxBin_TextChanged" GotFocus="textBoxBin_GotFocus" TabIndex="2"/>
+  </Grid>
+</Window>
