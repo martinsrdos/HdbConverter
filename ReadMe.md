@@ -20,3 +20,7 @@ The emphasis is on simplicity and ease of use. Therefore, the application can:
 1. Final publish as the application should be (version, manifest?, certificate?).
 2. License - I don't know if it is necessary at all
 3. Nicer, not native design
+
+## How to build
+
+Just clone this repository and build it. There is no third party libraries.
