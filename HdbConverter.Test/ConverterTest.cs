@@ -56,7 +56,7 @@ public class ConverterTest
     [InlineData("0", "0")]
     [InlineData("-876593", "Only positive numbers!")]
     [InlineData("10000000000000000", "Bigger than ulong")]
-    [InlineData("ABCDEF8473w", "wrong HEX number!")]
+    [InlineData("ABCDEF8473w", "Wrong HEX number!")]
     [InlineData("FE", "254")]
     [InlineData("0FE", "254")]
     public void Hex2Dec_ShouldHandleAllCases(string input, string expected)
@@ -71,7 +71,7 @@ public class ConverterTest
     [InlineData("0", "0")]
     [InlineData("-876593", "Only positive numbers!")]
     [InlineData("10000000000000000", "Bigger than ulong")]
-    [InlineData("ABCDEF8473w", "wrong HEX number!")]
+    [InlineData("ABCDEF8473w", "Wrong HEX number!")]
     [InlineData("7E", "1111110")]
     [InlineData("07E", "1111110")]
     public void Hex2Bin_ShouldHandleAllCases(string input, string expected)
