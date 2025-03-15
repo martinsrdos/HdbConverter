@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HdbConverter.Lib", "HdbConv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HdbConverter.Test", "HdbConverter.Test\HdbConverter.Test.csproj", "{4866717E-BB24-4DB0-A9E1-CC4FC1778B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HdbConverter.ConsoleApp", "HdbConverter.ConsoleApp\HdbConverter.ConsoleApp.csproj", "{40E8E040-AAE7-4E7A-B2A8-23F946355DD7}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HdbConverter.WpfApp", "HdbConverter.WpfApp\HdbConverter.WpfApp.csproj", "{A764FD50-A8E1-4C1B-9D68-A78BFA8E9BFF}"
 EndProject
 Global
@@ -29,11 +27,6 @@ Global
 		{4866717E-BB24-4DB0-A9E1-CC4FC1778B8D}.Publish|Any CPU.ActiveCfg = Publish|Any CPU
 		{4866717E-BB24-4DB0-A9E1-CC4FC1778B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4866717E-BB24-4DB0-A9E1-CC4FC1778B8D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{40E8E040-AAE7-4E7A-B2A8-23F946355DD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{40E8E040-AAE7-4E7A-B2A8-23F946355DD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{40E8E040-AAE7-4E7A-B2A8-23F946355DD7}.Publish|Any CPU.ActiveCfg = Publish|Any CPU
-		{40E8E040-AAE7-4E7A-B2A8-23F946355DD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{40E8E040-AAE7-4E7A-B2A8-23F946355DD7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A764FD50-A8E1-4C1B-9D68-A78BFA8E9BFF}.Debug|Any CPU.ActiveCfg = Release|Any CPU
 		{A764FD50-A8E1-4C1B-9D68-A78BFA8E9BFF}.Debug|Any CPU.Build.0 = Release|Any CPU
 		{A764FD50-A8E1-4C1B-9D68-A78BFA8E9BFF}.Publish|Any CPU.ActiveCfg = Publish|Any CPU
