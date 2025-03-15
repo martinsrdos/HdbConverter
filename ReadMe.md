@@ -23,4 +23,4 @@ The emphasis is on simplicity and ease of use. Therefore, the application can:
 
 ## How to build
 
-Just clone this repository and build it. There is no third party libraries. Only you need is Visual Studio and .net 9.
+Just clone this repository and build it. There is no third party libraries. Only you need is Visual Studio (i use 2022) and .net 9.
