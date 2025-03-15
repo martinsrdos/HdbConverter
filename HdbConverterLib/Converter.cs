@@ -16,7 +16,7 @@ public class Converter
     /// <returns>string of dec value</returns>
     public string Dec2Hex(string dec)
     {
-        var validResult = ValidateInput(dec, Validator.IsPositiveDecimal, NumSystem.DEC);
+        var validResult = BasicValidateInput(dec, Validator.IsPositiveDecimal, NumSystem.DEC);
 
         if (!validResult.isValid)
             return validResult.message;
@@ -37,7 +37,7 @@ public class Converter
     /// <returns></returns>
     public string Dec2Bin(string dec)
     {
-        var validResult = ValidateInput(dec, Validator.IsPositiveDecimal, NumSystem.DEC);
+        var validResult = BasicValidateInput(dec, Validator.IsPositiveDecimal, NumSystem.DEC);
 
         if (!validResult.isValid)
             return validResult.message;
@@ -64,7 +64,7 @@ public class Converter
     /// <returns></returns>
     public string Hex2Dec(string hex)
     {
-        var validResult = ValidateInput(hex, Validator.IsHexadecimalPositive, NumSystem.HEX);
+        var validResult = BasicValidateInput(hex, Validator.IsHexadecimalPositive, NumSystem.HEX);
 
         if (!validResult.isValid)
             return validResult.message;
@@ -85,7 +85,7 @@ public class Converter
     /// <returns></returns>
     public string Hex2Bin(string hex)
     {
-        var validResult = ValidateInput(hex, Validator.IsHexadecimalPositive, NumSystem.HEX);
+        var validResult = BasicValidateInput(hex, Validator.IsHexadecimalPositive, NumSystem.HEX);
 
         if (!validResult.isValid)
             return validResult.message;
@@ -112,7 +112,7 @@ public class Converter
     /// <returns></returns>
     public string Bin2Dec(string bin)
     {
-        var validResult = ValidateInput(bin, Validator.IsBinary, NumSystem.BIN);
+        var validResult = BasicValidateInput(bin, Validator.IsBinary, NumSystem.BIN);
 
         if (!validResult.isValid)
             return validResult.message;
@@ -139,7 +139,7 @@ public class Converter
     /// <returns></returns>
     public string Bin2Hex(string bin)
     {
-        var validResult = ValidateInput(bin, Validator.IsBinary, NumSystem.BIN);
+        var validResult = BasicValidateInput(bin, Validator.IsBinary, NumSystem.BIN);
 
         if (!validResult.isValid)
             return validResult.message;
@@ -208,7 +208,15 @@ public class Converter
         }
     };
 
-    private (bool isValid, string message) ValidateInput(string input, Func<string, bool> testPositiveNumber,  NumSystem numericSystem)
+    /// <summary>
+    /// Validate input - Beware - only basicly.<br/>
+    /// It validate emtpy string and if there is a positive number.
+    /// </summary>
+    /// <param name="input"></param>
+    /// <param name="testPositiveNumber"></param>
+    /// <param name="numericSystem"></param>
+    /// <returns></returns>
+    private (bool isValid, string message) BasicValidateInput(string input, Func<string, bool> testPositiveNumber,  NumSystem numericSystem)
     {
         if (input == "")
             return (isValid: false, message: "");
