@@ -122,7 +122,7 @@ public partial class MainWindow : Window
             {
                 if (Keyboard.FocusedElement is TextBox focusedTextBox)
                 {
-                    if (!SetTextBoxFosuc(Direction.Up, focusedTextBox.CaretIndex))
+                    if (!SetTextBoxFocus(Direction.Up, focusedTextBox.CaretIndex))
                         // sets carret at the home fo the text box
                         focusedTextBox.CaretIndex = 0;
                 }
@@ -133,7 +133,7 @@ public partial class MainWindow : Window
             {
                 if (Keyboard.FocusedElement is TextBox focusedTextBox)
                 {
-                    if (!SetTextBoxFosuc(Direction.Down, focusedTextBox.CaretIndex))
+                    if (!SetTextBoxFocus(Direction.Down, focusedTextBox.CaretIndex))
                         // sets caret at the end
                         focusedTextBox.CaretIndex = focusedTextBox.Text.Length;
                 }
@@ -147,7 +147,7 @@ public partial class MainWindow : Window
     /// </summary>
     /// <param name="direction">Pressed arrow (up/down)</param>
     /// <returns>Focus changed</returns>
-    private bool SetTextBoxFosuc(Direction direction, int possition)
+    private bool SetTextBoxFocus(Direction direction, int position)
     {
         const bool FocusChanged = true;
 
@@ -158,7 +158,7 @@ public partial class MainWindow : Window
                 {
                     activeTextBox = TextBoxType.Hex;
                     textBoxHex.Focus();
-                    textBoxHex.CaretIndex = possition;
+                    textBoxHex.CaretIndex = position;
                     return FocusChanged;
                 }
                 return !FocusChanged;
@@ -167,14 +167,14 @@ public partial class MainWindow : Window
                 {
                     activeTextBox = TextBoxType.Bin;
                     textBoxBin.Focus();
-                    textBoxBin.CaretIndex = possition;
+                    textBoxBin.CaretIndex = position;
                     return FocusChanged;
                 }
                 else
                 {
                     activeTextBox = TextBoxType.Dec;
                     textBoxDec.Focus();
-                    textBoxDec.CaretIndex = possition;
+                    textBoxDec.CaretIndex = position;
                     return FocusChanged;
                 }
             case TextBoxType.Bin:
@@ -182,7 +182,7 @@ public partial class MainWindow : Window
                 {
                     activeTextBox = TextBoxType.Hex;
                     textBoxHex.Focus();
-                    textBoxHex.CaretIndex = possition;
+                    textBoxHex.CaretIndex = position;
                     return FocusChanged;
                 }
                 return !FocusChanged;
