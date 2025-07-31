@@ -23,6 +23,7 @@ The emphasis is on simplicity and ease of use. Therefore, the application can:
 4. Steps between rows should keep caret possition, if some row length is smaller.
 5. Saving state (last active textbox and the text inside) - can continue after restart the app.
 6. Convert bigger numbers than ulong (BigInteger?)
+7. MAUI or different GUI for multipratform usage
 
 ## How to build
 

@@ -6,7 +6,41 @@
         xmlns:local="clr-namespace:HdbConverter.WpfApp"
         mc:Ignorable="d"
         Title="HDB Converter | by Martin Srdos" Height="129" Width="325"
-        ResizeMode="NoResize" Icon="/icon-360.png"  Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown">
+        ResizeMode="NoResize" Icon="/icon-360.png"  Loaded="Window_Loaded" PreviewKeyDown="Window_PreviewKeyDown"
+        >
+  <Window.Resources>
+
+
+    <Style TargetType="Border" x:Key="TextBorder">
+      <Setter Property="Background" Value="White" />
+      <Setter Property="BorderThickness" Value="0.5 0.6 0 0" />
+      <Setter Property="BorderBrush" Value="#B0B0B0" />
+      <Setter Property="CornerRadius" Value="4" />
+      <Setter Property="Margin" Value="5 2.5 10 2.5" />
+      <Setter Property="Effect">
+        <Setter.Value>
+          <DropShadowEffect ShadowDepth="3" Direction="320" Color="#B0B0B0" Opacity="1" BlurRadius="5" />
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+
+
+    <Style TargetType="TextBox">
+      <Setter Property="BorderThickness" Value="0" />
+      <Setter Property="BorderBrush" Value="Gray" />
+      <Setter Property="Background" Value="White" />
+      <Setter Property="HorizontalAlignment" Value="Center" />
+      <Setter Property="VerticalAlignment" Value="Center" />
+      <Setter Property="Width" Value="230" />
+      <Setter Property="Height" Value="18" />
+      <Setter Property="TextWrapping" Value="NoWrap" />
+      <Setter Property="Margin" Value="0 0 5 0" />
+    </Style>
+
+  </Window.Resources>
+
+
   <Grid Margin="0,0,0,0" KeyboardNavigation.TabNavigation="Cycle">
     <Grid.RowDefinitions>
       <RowDefinition Height="8*"/>
@@ -19,11 +53,19 @@
       <ColumnDefinition Width="20*"/>
       <ColumnDefinition Width="80*"/>
     </Grid.ColumnDefinitions>
-    <TextBlock x:Name="textBlockDec" HorizontalAlignment="Center" TextWrapping="Wrap" Text="DEC" VerticalAlignment="Center" Grid.Row="1" Height="16" Width="25"/>
-    <TextBlock x:Name="textBlockHex" HorizontalAlignment="Center" TextWrapping="Wrap" Text="HEX" VerticalAlignment="Center" Grid.Row="2" Height="16" Width="25"/>
-    <TextBlock x:Name="textBlockBin" HorizontalAlignment="Center" TextWrapping="Wrap" Text="BIN" VerticalAlignment="Center" Grid.Row="3" Height="16" Width="25" />
-    <TextBox x:Name="textBoxDec" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TextChanged="textBoxDec_TextChanged" GotFocus="textBoxDec_GotFocus" TabIndex="0"/>
-    <TextBox x:Name="textBoxHex" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TextChanged="textBoxHex_TextChanged" GotFocus="textBoxHex_GotFocus" TabIndex="1"/>
-    <TextBox x:Name="textBoxBin" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TextChanged="textBoxBin_TextChanged" GotFocus="textBoxBin_GotFocus" TabIndex="2"/>
+
+    <TextBlock x:Name="textBlockDec" HorizontalAlignment="Center" Text="DEC" VerticalAlignment="Center" Grid.Row="1" />
+    <TextBlock x:Name="textBlockHex" HorizontalAlignment="Center" TextWrapping="Wrap" Text="HEX" VerticalAlignment="Center" Grid.Row="2" />
+    <TextBlock x:Name="textBlockBin" HorizontalAlignment="Center" TextWrapping="Wrap" Text="BIN" VerticalAlignment="Center" Grid.Row="3" />
+
+    <Border Style="{StaticResource TextBorder}" Grid.Column="1" Grid.Row="1" />
+    <TextBox x:Name="textBoxDec" Grid.Column="1" Grid.Row="1" SelectionChanged="textBoxDec_SelectionChanged"  TextChanged="textBoxDec_TextChanged" GotFocus="textBoxDec_GotFocus" TabIndex="0" />
+
+    <Border Style="{StaticResource TextBorder}" Grid.Column="1" Grid.Row="2" />
+    <TextBox x:Name="textBoxHex" Grid.Column="1" Grid.Row="2" TextChanged="textBoxHex_TextChanged" GotFocus="textBoxHex_GotFocus" TabIndex="1" />
+
+    <Border Style="{StaticResource TextBorder}" Grid.Column="1" Grid.Row="3" />
+    <TextBox x:Name="textBoxBin" Grid.Column="1" Grid.Row="3"  TextChanged="textBoxBin_TextChanged" GotFocus="textBoxBin_GotFocus" TabIndex="2"/>
+
   </Grid>
 </Window>

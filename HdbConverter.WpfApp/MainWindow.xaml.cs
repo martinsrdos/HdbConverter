@@ -14,11 +14,13 @@ public partial class MainWindow : Window
     private readonly IShortcutService _shortcutService;
 
     private TextBoxType activeTextBox;
+    private int lastCaretIndex;
 
     public MainWindow()
     {
         InitializeComponent();
         activeTextBox = TextBoxType.Dec;
+        lastCaretIndex = 0;
         _converter = new();
         _shortcutService = new ShortcutService();
 
@@ -28,8 +30,23 @@ public partial class MainWindow : Window
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
+        activeTextBox = TextBoxType.Dec;
         Keyboard.Focus(textBoxDec);
     }
+
+    #region "Handlers"
+
+    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        HandleKeyDown(e);
+    }
+
+    private void textBoxDec_SelectionChanged(object sender, RoutedEventArgs e)
+    {
+        // TODO
+    }
+
+    #endregion
 
     #region "Converting"
 
@@ -85,12 +102,6 @@ public partial class MainWindow : Window
 
     #region "Shortcuts"
 
-
-    private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
-    {
-        HandleKeyDown(e);
-    }
-
     private void HandleKeyDown(KeyEventArgs e)
     {
         switch (_shortcutService.GetPressedKeys(e))
@@ -123,8 +134,11 @@ public partial class MainWindow : Window
                 if (Keyboard.FocusedElement is TextBox focusedTextBox)
                 {
                     if (!SetTextBoxFocus(Direction.Up, focusedTextBox.CaretIndex))
+                    {
                         // sets carret at the home fo the text box
                         focusedTextBox.CaretIndex = 0;
+                        lastCaretIndex = 0;
+                    }
                 }
                 break;
             }
@@ -191,7 +205,7 @@ public partial class MainWindow : Window
         }
     }
 
-    #endregion
 
+    #endregion
 
 }

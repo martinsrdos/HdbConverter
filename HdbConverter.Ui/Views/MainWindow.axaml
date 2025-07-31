@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:HdbConverter.Ui.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="325" d:DesignHeight="129"
+        x:Class="HdbConverter.Ui.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="HDB Converter | by Martin Srdos" Height="129" Width="325"
+        CanResize="False">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+  
+    
+
+  <Grid Margin="0,0,0,0" KeyboardNavigation.TabNavigation="Cycle">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="8*"/>
+      <RowDefinition Height="28*"/>
+      <RowDefinition Height="28*"/>
+      <RowDefinition Height="28*"/>
+      <RowDefinition Height="8*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="20*"/>
+      <ColumnDefinition Width="80*"/>
+    </Grid.ColumnDefinitions>
+    <TextBlock HorizontalAlignment="Center" Text="DEC" VerticalAlignment="Center" Grid.Row="1" />
+    <TextBlock HorizontalAlignment="Center" Text="HEX" VerticalAlignment="Center" Grid.Row="2" />
+    <TextBlock HorizontalAlignment="Center" Text="BIN" VerticalAlignment="Center" Grid.Row="3" />
+    <TextBox  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TabIndex="0" />
+    <TextBox  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TabIndex="1"/>
+    <TextBox  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" TextWrapping="NoWrap" Text="" VerticalAlignment="Center" Width="240" Height="18" TabIndex="2"/>
+  </Grid>
+</Window>
