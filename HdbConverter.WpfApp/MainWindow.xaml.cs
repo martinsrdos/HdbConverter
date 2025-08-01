@@ -1,5 +1,4 @@
-﻿using HdbConverter.Lib;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -10,22 +9,15 @@ namespace HdbConverter.WpfApp;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private readonly Converter _converter;
     private readonly IShortcutService _shortcutService;
 
     private TextBoxType activeTextBox;
-    private int lastCaretIndex;
 
     public MainWindow()
     {
         InitializeComponent();
         activeTextBox = TextBoxType.Dec;
-        lastCaretIndex = 0;
-        _converter = new();
         _shortcutService = new ShortcutService();
-
-        // set focus in first textbox
-
     }
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -39,62 +31,6 @@ public partial class MainWindow : Window
     private void Window_PreviewKeyDown(object sender, KeyEventArgs e)
     {
         HandleKeyDown(e);
-    }
-
-    private void textBoxDec_SelectionChanged(object sender, RoutedEventArgs e)
-    {
-        // TODO
-    }
-
-    #endregion
-
-    #region "Converting"
-
-    private void textBoxDec_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        if (activeTextBox == TextBoxType.Dec)
-        {
-            textBoxHex.Text = _converter.Dec2Hex(textBoxDec.Text);
-            textBoxBin.Text = _converter.Dec2Bin(textBoxDec.Text);
-        }
-    }
-
-    private void textBoxHex_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        if (activeTextBox == TextBoxType.Hex)
-        {
-            textBoxDec.Text = _converter.Hex2Dec(textBoxHex.Text);
-            textBoxBin.Text = _converter.Hex2Bin(textBoxHex.Text);
-        }
-    }
-
-    private void textBoxBin_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        if (activeTextBox == TextBoxType.Bin)
-        {
-            textBoxDec.Text = _converter.Bin2Dec(textBoxBin.Text);
-            textBoxHex.Text = _converter.Bin2Hex(textBoxBin.Text);
-        }
-    }
-
-    #endregion
-
-
-    #region "Setting active textbox"
-
-    private void textBoxDec_GotFocus(object sender, RoutedEventArgs e)
-    {
-        activeTextBox = TextBoxType.Dec;
-    }
-
-    private void textBoxHex_GotFocus(object sender, RoutedEventArgs e)
-    {
-        activeTextBox = TextBoxType.Hex;
-    }
-
-    private void textBoxBin_GotFocus(object sender, RoutedEventArgs e)
-    {
-        activeTextBox = TextBoxType.Bin;
     }
 
     #endregion
@@ -137,7 +73,6 @@ public partial class MainWindow : Window
                     {
                         // sets carret at the home fo the text box
                         focusedTextBox.CaretIndex = 0;
-                        lastCaretIndex = 0;
                     }
                 }
                 break;
