@@ -3,6 +3,9 @@ using HdbConverter.Lib;
 
 namespace HdbConverter.ViewModel;
 
+/// <summary>
+/// ViewModel for the HdbConverter main window.
+/// </summary>
 public partial class HdbViewModel : ObservableObject
 {
 
