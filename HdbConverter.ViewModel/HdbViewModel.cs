@@ -32,17 +32,9 @@ public partial class HdbViewModel : ObservableObject
     partial void OnBinChanged(string value)
     {
         if (_isUpdating) return;
-        
         _isUpdating = true;
-
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            Dec = Hex = string.Empty;
-            return;
-        }
         Dec = _converter.Bin2Dec(value);
         Hex = _converter.Bin2Hex(value);
-
         _isUpdating = false;
     }
 
@@ -50,11 +42,6 @@ public partial class HdbViewModel : ObservableObject
     {
         if (_isUpdating) return;
         _isUpdating = true;
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            Bin = Hex = string.Empty;
-            return;
-        }
         Bin = _converter.Dec2Bin(value);
         Hex = _converter.Dec2Hex(value);
         _isUpdating = false;
@@ -64,11 +51,6 @@ public partial class HdbViewModel : ObservableObject
     {
         if (_isUpdating) return;
         _isUpdating = true;
-        if (string.IsNullOrWhiteSpace(value))
-        {
-            Bin = Dec = string.Empty;
-            return;
-        }
         Bin = _converter.Hex2Bin(value);
         Dec = _converter.Hex2Dec(value);
         _isUpdating = false;
