@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:HdbConverter.ViewModel;assembly=HdbConverter.ViewModel" 
+             x:Class="MobileApp.MainPage"
+             x:DataType="viewmodel:HdbViewModel">
+
+  <ScrollView>
+    <VerticalStackLayout
+      Padding="30,0"
+      Spacing="15">
+
+      <Label
+        Text="Decimal"
+        Style="{StaticResource SubHeadline}"
+        SemanticProperties.HeadingLevel="Level2"
+        SemanticProperties.Description="Decimal label"
+        HorizontalOptions="Start"
+        Margin="0,50,0,0"/>
+
+      <Entry x:Name="DecEntry" Keyboard="Numeric" Text="{Binding Dec}" />
+
+
+      <Label
+        Text="Hexadecimal"
+        Style="{StaticResource SubHeadline}"
+        SemanticProperties.HeadingLevel="Level2"
+        SemanticProperties.Description="Hexadecimal label"
+        HorizontalOptions="Start"/>
+
+      <Entry x:Name="HexEntry" Text="{Binding Hex}" />
+      
+      <Label
+        Text="Binary"
+        Style="{StaticResource SubHeadline}"
+        SemanticProperties.HeadingLevel="Level2"
+        SemanticProperties.Description="Binary label"
+        HorizontalOptions="Start"/>
+
+      <Entry x:Name="BinEntry" Keyboard="Numeric" Text="{Binding Bin}"/>
+
+      <Button Text="Clear" Clicked="OnButtonClicked" Margin="0,30,0,0"/>
+
+    </VerticalStackLayout>
+  </ScrollView>
+
+</ContentPage>

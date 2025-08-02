@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileApp.AboutPage"
+             Title="AboutPage">
+
+  <VerticalStackLayout>
+
+    <Label 
+      Text="
+      TITLE:      HDB Converter&#10;
+      VERSION:    2.1&#10;
+      AUTHOR:     Martin Srdos&#10;
+      CONTACT:    martin.srdos@gmail.com&#10;
+      SOURCE:     github.com/martinsrdos&#10;
+      COPYRIGHT:  &#x00A9; 2025, Martin Srdos"
+      LineBreakMode="WordWrap"
+      HorizontalOptions="Center"
+      Margin="0,50,0,0"
+      FontFamily="Cascadia Mono"/>
+
+  </VerticalStackLayout>
+</ContentPage>
