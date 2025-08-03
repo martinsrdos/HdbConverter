@@ -1,14 +1,15 @@
-﻿using System.Windows;
+﻿using System.Reflection;
+using System.Windows;
 
 namespace HdbConverter.WpfApp;
 
 public static class HelpMessageBox
 {
-    private static string content = """
+    private static string content = $"""
         ABOUT
 
         TITLE: HDB Converter
-        VERSION: 2.0.0
+        VERSION: {Assembly.GetEntryAssembly()?.GetName().Version}
         AUTHOR: Martin Srdos
         CONTACT: martin.srdos@gmail.com
         SOURCE: github.com/martinsrdos
